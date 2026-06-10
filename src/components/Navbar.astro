@@ -1,28 +1,51 @@
 ---
+import { site } from "../config/site";
 ---
 <!-- TopNavBar -->
 <nav class="fixed top-0 w-full z-50 backdrop-blur-md border-b border-white/10 transition-all duration-300 bg-background/95 shadow-lg" id="global-nav">
-  <div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
-    <a class="font-hero-headline-mobile text-hero-headline-mobile text-primary tracking-tighter hover:opacity-80 transition-opacity" href="#">
-      INTERLAGOS PRIVATE
+  <!-- Desktop: logo e CTA nas extremidades, links no centro -->
+  <div class="hidden md:grid grid-cols-[1fr_auto_1fr] items-center gap-x-6 lg:gap-x-10 px-gutter py-3 max-w-container-max mx-auto w-full">
+    <a class="justify-self-start shrink-0 hover:opacity-90 transition-opacity max-w-[min(200px,28vw)]" href="#" aria-label={site.name}>
+      <img
+        src={site.logo}
+        alt={site.name}
+        class="h-9 lg:h-10 w-full max-h-10 object-contain object-left"
+        width="1835"
+        height="340"
+        decoding="async"
+      />
     </a>
-    <!-- Desktop Nav -->
-    <div class="hidden md:flex items-center gap-8">
-      <ul class="flex items-center gap-6">
-        <li><a class="text-performance-white font-label-caps text-label-caps nav-link" href="#experiencia">EXPERIÊNCIA</a></li>
-        <li><a class="text-performance-white/70 font-label-caps text-label-caps nav-link" href="#etapas">ETAPAS</a></li>
-        <li><a class="text-performance-white/70 font-label-caps text-label-caps nav-link" href="#networking">NETWORKING</a></li>
-        <li><a class="text-performance-white/70 font-label-caps text-label-caps nav-link" href="#contato">CONTATO</a></li>
+    <nav class="justify-self-center px-2 lg:px-4" aria-label="Navegação principal">
+      <ul class="flex items-center gap-6 lg:gap-8 xl:gap-10">
+        <li><a class="text-performance-white font-label-caps text-label-caps nav-link whitespace-nowrap" href="#experiencia">EXPERIÊNCIA</a></li>
+        <li><a class="text-performance-white/70 font-label-caps text-label-caps nav-link whitespace-nowrap" href="#etapas">ETAPAS</a></li>
+        <li><a class="text-performance-white/70 font-label-caps text-label-caps nav-link whitespace-nowrap" href="#networking">CONEXÕES</a></li>
+        <li><a class="text-performance-white/70 font-label-caps text-label-caps nav-link whitespace-nowrap" href="#investimento">INVESTIMENTO</a></li>
+        <li><a class="text-performance-white/70 font-label-caps text-label-caps nav-link whitespace-nowrap" href="#contato">CONTATO</a></li>
       </ul>
-      <a class="bg-primary text-on-primary font-label-caps text-label-caps px-6 py-3 uppercase tracking-wider transition-all duration-300 btn-glow" href="#aplicacao">
-        SOLICITAR ACESSO
-      </a>
-    </div>
-    <!-- Mobile Action -->
-    <div class="md:hidden">
-      <a class="text-primary font-label-caps text-label-caps uppercase hover:opacity-80 transition-opacity flex items-center gap-2" href="#aplicacao">
-        APLICAR <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
-      </a>
-    </div>
+    </nav>
+    <a
+      class="justify-self-end inline-flex bg-primary text-on-primary font-label-caps text-label-caps px-5 lg:px-7 py-2.5 uppercase tracking-wider transition-all duration-300 btn-glow shrink-0 whitespace-nowrap text-[13px] lg:text-label-caps"
+      href="#aplicacao"
+    >
+      QUERO PARTICIPAR
+    </a>
+  </div>
+
+  <!-- Mobile -->
+  <div class="flex md:hidden justify-between items-center gap-4 px-gutter py-3 max-w-container-max mx-auto w-full">
+    <a class="shrink-0 hover:opacity-90 transition-opacity max-w-[min(160px,48vw)]" href="#" aria-label={site.name}>
+      <img
+        src={site.logo}
+        alt={site.name}
+        class="h-8 w-full object-contain object-left"
+        width="1835"
+        height="340"
+        decoding="async"
+      />
+    </a>
+    <a class="text-primary font-label-caps text-label-caps uppercase hover:opacity-80 transition-opacity flex items-center gap-2 shrink-0" href="#aplicacao">
+      PARTICIPAR <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+    </a>
   </div>
 </nav>

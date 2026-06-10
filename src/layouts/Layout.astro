@@ -1,11 +1,15 @@
 ---
 import "../styles/global.css";
+import { site } from "../config/site";
 
 interface Props {
   title?: string;
+  description?: string;
 }
 
-const { title = "Interlagos Private Track Club" } = Astro.props;
+const { title = site.name, description = site.description } = Astro.props;
+const canonicalUrl = site.siteUrl.replace(/\/$/, "");
+const ogImageUrl = new URL(site.ogImage, canonicalUrl).href;
 ---
 
 <!DOCTYPE html>
@@ -14,15 +18,31 @@ const { title = "Interlagos Private Track Club" } = Astro.props;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
-    
+    <meta name="description" content={description} />
+
+    <link rel="canonical" href={canonicalUrl} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImageUrl} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
-    
+
     <!-- Material Symbols -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-    
+
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -30,9 +50,57 @@ const { title = "Interlagos Private Track Club" } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
+
+    {site.ga4Id && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${site.ga4Id}`}></script>
+        <script is:inline define:vars={{ ga4Id: site.ga4Id }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag("js", new Date());
+          gtag("config", ga4Id);
+        </script>
+      </>
+    )}
+
+    {site.metaPixelId && (
+      <script is:inline define:vars={{ pixelId: site.metaPixelId }}>
+        !(function (f, b, e, v, n, t, s) {
+          if (f.fbq) return;
+          n = f.fbq = function () {
+            n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+          };
+          if (!f._fbq) f._fbq = n;
+          n.push = n;
+          n.loaded = !0;
+          n.version = "2.0";
+          n.queue = [];
+          t = b.createElement(e);
+          t.async = !0;
+          t.src = v;
+          s = b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t, s);
+        })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+        fbq("init", pixelId);
+        fbq("track", "PageView");
+      </script>
+    )}
   </head>
   <body class="bg-track-asphalt text-performance-white font-body-md antialiased overflow-x-hidden selection:bg-podium-gold selection:text-track-asphalt">
     <slot />
+
+    <script is:inline>
+      window.addEventListener("acelera:lead-submit", () => {
+        if (typeof gtag === "function") {
+          gtag("event", "generate_lead", { event_category: "form", event_label: "acelera_conexoes" });
+        }
+        if (typeof fbq === "function") {
+          fbq("track", "Lead");
+        }
+      });
+    </script>
 
     <script>
       // Navbar blur effect on scroll

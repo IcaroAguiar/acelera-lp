@@ -3,20 +3,25 @@ import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Navbar.astro";
 import Hero from "../components/Hero.astro";
 import Concept from "../components/Concept.astro";
-import InterlagosTrack from "../components/InterlagosTrack.astro";
 import Etapas from "../components/Etapas.astro";
+import InterlagosTrack from "../components/InterlagosTrack.astro";
+import Conexoes from "../components/Conexoes.astro";
+import Investimento from "../components/Investimento.astro";
 import Form from "../components/Form.astro";
 import Footer from "../components/Footer.astro";
 import WhatsAppButton from "../components/WhatsAppButton.astro";
+import { site } from "../config/site";
 ---
 
-<Layout title="Interlagos Private Track Club">
+<Layout title={site.name} description={site.description}>
   <Navbar />
   <main>
     <Hero />
     <Concept />
-    <InterlagosTrack />
     <Etapas />
+    <InterlagosTrack />
+    <Conexoes />
+    <Investimento />
     <Form />
   </main>
   <Footer />

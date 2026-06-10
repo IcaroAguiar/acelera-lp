@@ -1,74 +1,186 @@
 ---
+import { originOptions, site } from "../config/site";
 ---
-<!-- Formulário de Aplicação Premium -->
-<section class="py-section-gap-mobile md:py-section-gap-desktop bg-track-asphalt border-t border-white/5 reveal-hidden reveal-visible" id="contato">
+<!-- Formulário / Solicitar Participação -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop bg-track-asphalt border-t border-white/5 reveal-hidden" id="contato">
   <div class="px-gutter max-w-container-max mx-auto flex flex-col md:flex-row gap-16">
     <div class="w-full md:w-5/12">
       <h2 class="font-section-title text-section-title text-performance-white uppercase mb-6">
-        Solicitação de <span class="text-primary block">Acesso</span>
+        Quero participar do <span class="text-primary block">Acelera Conexões</span>
       </h2>
       <p class="font-body-md text-body-md text-metallic-grey mb-8">
-        O Interlagos Private opera sob regime estrito de convite e curadoria. O preenchimento do formulário não garante participação. Nosso board executivo analisará seu perfil para assegurar a sinergia e o nível de networking do grupo.
+        Preencha os dados abaixo. Nossa equipe entrará em contato em até 24 horas para confirmar sua participação e orientar sobre o pagamento.
       </p>
-      <div class="bg-pit-lane-navy p-6 border border-white/5 mb-8 hover:border-primary/30 transition-colors duration-300">
+      <a class="block bg-pit-lane-navy p-6 border border-white/5 mb-8 hover:border-primary/30 transition-colors duration-300 group" href="#investimento">
         <p class="font-label-caps text-label-caps text-primary tracking-widest uppercase mb-4">Investimento</p>
         <div class="flex items-end gap-2 mb-2">
-          <span class="font-body-md text-metallic-grey">A partir de</span>
-          <span class="font-hero-headline-mobile text-[32px] text-performance-white leading-none">R$ 8.500</span>
+          <span class="font-hero-headline-mobile text-[32px] text-performance-white leading-none group-hover:text-primary transition-colors">{site.investment}</span>
+          <span class="font-body-md text-metallic-grey pb-1">por participante</span>
         </div>
-        <p class="font-body-md text-microcopy text-metallic-grey">* Inscrição para Piloto + 1 Convidado Lounge.</p>
-      </div>
+        <p class="font-body-md text-microcopy text-metallic-grey">Ver inclusões e detalhes da experiência</p>
+      </a>
     </div>
-    
+
     <div class="w-full md:w-7/12" id="aplicacao">
-      <form class="bg-pit-lane-navy p-8 border border-white/5 flex flex-col shadow-2xl bg-track-asphalt gap-8">
+      <div class="hidden bg-pit-lane-navy border border-primary/30 p-8 md:p-10 text-center shadow-2xl" id="form-success">
+        <span class="material-symbols-outlined text-primary text-[48px] mb-4">check_circle</span>
+        <h3 class="font-section-title text-[28px] text-performance-white uppercase mb-4">Recebemos sua solicitação</h3>
+        <p class="font-body-md text-body-md text-metallic-grey mb-2">
+          Nossa equipe entrará em contato pelo WhatsApp em até 24 horas para confirmar sua vaga e orientar sobre os próximos passos.
+        </p>
+        <p class="font-label-caps text-microcopy text-primary tracking-widest uppercase mt-6">
+          {site.name} · {site.location}
+        </p>
+      </div>
+
+      <form class="bg-pit-lane-navy p-8 border border-white/5 flex flex-col shadow-2xl gap-8" id="lead-form" novalidate>
+        <input type="hidden" id="utm_source" name="utm_source" />
+        <input type="hidden" id="utm_medium" name="utm_medium" />
+        <input type="hidden" id="utm_campaign" name="utm_campaign" />
+        <input type="hidden" id="utm_content" name="utm_content" />
+        <input type="hidden" id="utm_term" name="utm_term" />
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <!-- Nome -->
           <div class="flex flex-col gap-2 group">
-            <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="nome">Nome Completo</label>
-            <input class="bg-surface-container-low border text-performance-white focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_10px_rgba(200,160,40,0.3)] rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-white/10 placeholder:text-metallic-grey" id="nome" placeholder="João Silva" required type="text"/>
+            <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="nome">Nome completo</label>
+            <input class="bg-surface-container-low border text-performance-white focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_10px_rgba(200,160,40,0.3)] rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-white/10 placeholder:text-metallic-grey" id="nome" name="nome" placeholder="Seu nome completo" required type="text"/>
           </div>
-          <!-- Email -->
           <div class="flex flex-col gap-2 group">
-            <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="email">E-mail Corporativo</label>
-            <input class="bg-surface-container-low border text-performance-white focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_10px_rgba(200,160,40,0.3)] rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-white/10 placeholder:text-metallic-grey" id="email" placeholder="joao@empresa.com.br" required type="email"/>
+            <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="whatsapp">WhatsApp</label>
+            <input class="bg-surface-container-low border text-performance-white focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_10px_rgba(200,160,40,0.3)] rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-white/10 placeholder:text-metallic-grey" id="whatsapp" name="whatsapp" inputmode="tel" placeholder="(11) 99999-9999" required type="tel"/>
           </div>
         </div>
-        
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <!-- Empresa -->
           <div class="flex flex-col gap-2 group">
-            <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="empresa">Empresa</label>
-            <input class="bg-surface-container-low border text-performance-white focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_10px_rgba(200,160,40,0.3)] rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-white/10 placeholder:text-metallic-grey" id="empresa" placeholder="Nome da Instituição" required type="text"/>
+            <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="email">E-mail</label>
+            <input class="bg-surface-container-low border text-performance-white focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_10px_rgba(200,160,40,0.3)] rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-white/10 placeholder:text-metallic-grey" id="email" name="email" placeholder="seu@email.com" required type="email"/>
           </div>
-          <!-- Cargo -->
           <div class="flex flex-col gap-2 group">
-            <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="cargo">Cargo</label>
-            <input class="bg-surface-container-low border text-performance-white focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_10px_rgba(200,160,40,0.3)] rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-white/10 placeholder:text-metallic-grey" id="cargo" placeholder="Ex: CEO, Founder, VP" required type="text"/>
+            <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="empresa">Empresa onde atua</label>
+            <input class="bg-surface-container-low border text-performance-white focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_10px_rgba(200,160,40,0.3)] rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-white/10 placeholder:text-metallic-grey" id="empresa" name="empresa" placeholder="Nome da empresa ou setor" required type="text"/>
           </div>
         </div>
-        
-        <!-- LinkedIn -->
-        <div class="flex flex-col gap-2 group">
-          <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="linkedin">Perfil no LinkedIn (Obrigatório para curadoria)</label>
-          <input class="bg-surface-container-low border text-performance-white focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_10px_rgba(200,160,40,0.3)] rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-white/10 placeholder:text-metallic-grey" id="linkedin" placeholder="https://linkedin.com/in/..." required type="url"/>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="flex flex-col gap-2 group">
+            <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="cargo">Qual é o seu cargo ou função?</label>
+            <input class="bg-surface-container-low border text-performance-white focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_10px_rgba(200,160,40,0.3)] rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-white/10 placeholder:text-metallic-grey" id="cargo" name="cargo" placeholder="CEO, Diretor, Sócio..." required type="text"/>
+          </div>
+          <div class="flex flex-col gap-2 group">
+            <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="origem">Como ficou sabendo do Acelera?</label>
+            <select class="bg-surface-container-low border text-performance-white focus:border-primary focus:ring-1 focus:ring-primary rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-white/10" id="origem" name="origem">
+              <option value="">Selecione</option>
+              {originOptions.map((option) => (
+                <option value={option}>{option}</option>
+              ))}
+            </select>
+          </div>
         </div>
-        
-        <!-- Veículo -->
+
         <div class="flex flex-col gap-2 group">
-          <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="veiculo">Veículo Pretendido para Pista</label>
-          <input class="bg-surface-container-low border text-performance-white focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_10px_rgba(200,160,40,0.3)] rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-white/10 placeholder:text-metallic-grey" id="veiculo" placeholder="Marca e Modelo" required type="text"/>
+          <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="atracao">
+            O que mais te atrai nessa experiência? <span class="text-metallic-grey normal-case tracking-normal">(opcional)</span>
+          </label>
+          <textarea class="bg-surface-container-low border text-performance-white focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_10px_rgba(200,160,40,0.3)] rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-white/10 placeholder:text-metallic-grey min-h-[120px] resize-y" id="atracao" name="atracao" placeholder="Conte em poucas palavras..."></textarea>
         </div>
-        
-        <button class="mt-4 bg-podium-gold text-on-primary font-label-caps text-label-caps px-8 py-4 uppercase tracking-widest transition-all duration-300 w-full flex justify-center items-center gap-2 btn-glow hover:opacity-90" type="submit">
-          ENVIAR APLICAÇÃO PARA ANÁLISE
-          <span class="material-symbols-outlined text-[18px]">lock_open</span>
+
+        <label class="flex items-start gap-3 cursor-pointer">
+          <input class="mt-1 accent-primary" id="consentimento" name="consentimento" required type="checkbox"/>
+          <span class="font-body-md text-microcopy text-metallic-grey leading-relaxed">
+            Autorizo o uso dos meus dados para contato sobre o Acelera Conexões, conforme a política de privacidade.
+          </span>
+        </label>
+
+        <p class="hidden font-body-md text-microcopy text-error" id="form-error" role="alert"></p>
+
+        <button class="mt-2 bg-podium-gold text-on-primary font-label-caps text-label-caps px-8 py-4 uppercase tracking-widest transition-all duration-300 w-full flex justify-center items-center gap-2 btn-glow hover:opacity-90 disabled:opacity-60" id="form-submit" type="submit">
+          SOLICITAR MINHA PARTICIPAÇÃO
+          <span class="material-symbols-outlined text-[18px]">send</span>
         </button>
-        <p class="text-center font-body-md text-microcopy text-metallic-grey mt-2 flex items-center justify-center gap-1">
+        <p class="text-center font-body-md text-microcopy text-metallic-grey flex items-center justify-center gap-1">
           <span class="material-symbols-outlined text-[14px] text-primary">verified_user</span>
-          Protocolo de segurança criptografado. Seus dados são tratados com absoluta confidencialidade e exclusividade.
+          Seus dados são tratados com confidencialidade para qualificação da participação.
         </p>
       </form>
     </div>
   </div>
 </section>
+
+<script define:vars={{ webhookUrl: site.formWebhookUrl }}>
+  const form = document.getElementById("lead-form");
+  const success = document.getElementById("form-success");
+  const errorEl = document.getElementById("form-error");
+  const submitBtn = document.getElementById("form-submit");
+  const whatsappInput = document.getElementById("whatsapp");
+
+  if (whatsappInput instanceof HTMLInputElement) {
+    whatsappInput.addEventListener("input", () => {
+      const digits = whatsappInput.value.replace(/\D/g, "").slice(0, 11);
+      if (digits.length <= 2) {
+        whatsappInput.value = digits.length ? `(${digits}` : "";
+        return;
+      }
+      if (digits.length <= 7) {
+        whatsappInput.value = `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+        return;
+      }
+      whatsappInput.value = `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+    });
+  }
+
+  if (form instanceof HTMLFormElement) {
+    const params = new URLSearchParams(window.location.search);
+    for (const key of ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term"]) {
+      const input = document.getElementById(key);
+      const value = params.get(key) ?? "";
+      if (input instanceof HTMLInputElement) {
+        input.value = value;
+      }
+    }
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (!(success instanceof HTMLElement) || !(errorEl instanceof HTMLElement) || !(submitBtn instanceof HTMLButtonElement)) {
+        return;
+      }
+
+      errorEl.classList.add("hidden");
+      errorEl.textContent = "";
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
+
+      submitBtn.disabled = true;
+
+      try {
+        if (webhookUrl) {
+          const response = await fetch(webhookUrl, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+
+          if (!response.ok) {
+            throw new Error("Não foi possível enviar sua solicitação. Tente novamente.");
+          }
+        }
+
+        form.classList.add("hidden");
+        success.classList.remove("hidden");
+        success.scrollIntoView({ behavior: "smooth", block: "center" });
+
+        window.dispatchEvent(new CustomEvent("acelera:lead-submit", { detail: payload }));
+      } catch (error) {
+        submitBtn.disabled = false;
+        errorEl.textContent = error instanceof Error ? error.message : "Erro ao enviar. Tente novamente.";
+        errorEl.classList.remove("hidden");
+      }
+    });
+  }
+</script>

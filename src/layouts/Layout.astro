@@ -1,0 +1,163 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+}
+
+const { title = "Interlagos Private Track Club" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body class="bg-track-asphalt text-performance-white font-body-md antialiased overflow-x-hidden selection:bg-podium-gold selection:text-track-asphalt">
+    <slot />
+
+    <script>
+      // Navbar blur effect on scroll
+      window.addEventListener('scroll', () => {
+        const nav = document.getElementById('global-nav');
+        if (!nav) return;
+        if (window.scrollY > 50) {
+          nav.classList.add('bg-background/95', 'shadow-lg');
+          nav.classList.remove('bg-background/80');
+        } else {
+          nav.classList.add('bg-background/80');
+          nav.classList.remove('bg-background/95', 'shadow-lg');
+        }
+      });
+
+      // Active Nav Link Observer
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link');
+      
+      window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = (section as HTMLElement).offsetTop;
+          if (window.scrollY >= sectionTop - 150) {
+            current = section.getAttribute('id') || '';
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href')?.includes(current) && current !== '') {
+            link.classList.add('active');
+          }
+        });
+      });
+
+      // Intersection Observer for Scroll Reveals
+      const revealOptions = {
+        threshold: 0.02,
+        rootMargin: "0px 0px -20px 0px"
+      };
+
+      const revealOnScroll = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) {
+            return;
+          } else {
+            entry.target.classList.add('reveal-visible');
+            observer.unobserve(entry.target); 
+          }
+        });
+      }, revealOptions);
+
+      document.querySelectorAll('.reveal-hidden').forEach(element => {
+        revealOnScroll.observe(element);
+      });
+
+      // Magnetic Button Effect
+      const magneticWrapper = document.getElementById('magnetic-wrapper');
+      const magneticElement = document.getElementById('magnetic-element');
+
+      if (magneticWrapper && magneticElement) {
+        magneticWrapper.addEventListener('mousemove', (e) => {
+          const rect = magneticWrapper.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          
+          magneticElement.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+
+        magneticWrapper.addEventListener('mouseleave', () => {
+          magneticElement.style.transform = 'translate(0px, 0px)';
+        });
+      }
+
+      // Parallax effect for Hero background image
+      const heroImg = document.getElementById('hero-parallax-img');
+
+      // Parallax effect for Interlagos section
+      const trackSection = document.getElementById('interlagos-track');
+      const trackImg = document.getElementById('track-parallax-img');
+      
+      window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        
+        // Hero background image parallax
+        if (heroImg) {
+          heroImg.style.transform = `translateY(${scrolled * 0.15}px)`;
+        }
+
+        // Interlagos section parallax
+        if (trackSection && trackImg) {
+          const rect = trackSection.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+          
+          if (rect.top <= windowHeight && rect.bottom >= 0) {
+            const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+            const yPos = (progress * 10) - 5; // Subtle move from -5% to 5%
+            trackImg.style.transform = `scale(1.15) translateY(${yPos}%)`;
+          }
+        }
+      }, { passive: true });
+
+      // Global Text Parallax Effect
+      const parallaxElements = document.querySelectorAll('[data-parallax-speed]');
+      window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY;
+        parallaxElements.forEach(el => {
+          const htmlEl = el as HTMLElement;
+          const rect = htmlEl.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            const speed = parseFloat(htmlEl.getAttribute('data-parallax-speed') || '0');
+            
+            if (htmlEl.closest('header')) {
+              // Hero section elements move relative to absolute scroll
+              htmlEl.style.transform = `translateY(${scrolled * speed}px)`;
+            } else {
+              // Other elements move relative to their position in viewport
+              const viewportOffset = rect.top - window.innerHeight;
+              const moveVal = viewportOffset * speed * -0.5;
+              htmlEl.style.transform = `translateY(${moveVal}px)`;
+            }
+          }
+        });
+      }, { passive: true });
+    </script>
+  </body>
+</html>

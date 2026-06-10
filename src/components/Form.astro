@@ -1,0 +1,74 @@
+---
+---
+<!-- Formulário de Aplicação Premium -->
+<section class="py-section-gap-mobile md:py-section-gap-desktop bg-track-asphalt border-t border-white/5 reveal-hidden reveal-visible" id="contato">
+  <div class="px-gutter max-w-container-max mx-auto flex flex-col md:flex-row gap-16">
+    <div class="w-full md:w-5/12">
+      <h2 class="font-section-title text-section-title text-performance-white uppercase mb-6">
+        Solicitação de <span class="text-primary block">Acesso</span>
+      </h2>
+      <p class="font-body-md text-body-md text-metallic-grey mb-8">
+        O Interlagos Private opera sob regime estrito de convite e curadoria. O preenchimento do formulário não garante participação. Nosso board executivo analisará seu perfil para assegurar a sinergia e o nível de networking do grupo.
+      </p>
+      <div class="bg-pit-lane-navy p-6 border border-white/5 mb-8 hover:border-primary/30 transition-colors duration-300">
+        <p class="font-label-caps text-label-caps text-primary tracking-widest uppercase mb-4">Investimento</p>
+        <div class="flex items-end gap-2 mb-2">
+          <span class="font-body-md text-metallic-grey">A partir de</span>
+          <span class="font-hero-headline-mobile text-[32px] text-performance-white leading-none">R$ 8.500</span>
+        </div>
+        <p class="font-body-md text-microcopy text-metallic-grey">* Inscrição para Piloto + 1 Convidado Lounge.</p>
+      </div>
+    </div>
+    
+    <div class="w-full md:w-7/12" id="aplicacao">
+      <form class="bg-pit-lane-navy p-8 border border-white/5 flex flex-col shadow-2xl bg-track-asphalt gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Nome -->
+          <div class="flex flex-col gap-2 group">
+            <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="nome">Nome Completo</label>
+            <input class="bg-surface-container-low border text-performance-white focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_10px_rgba(200,160,40,0.3)] rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-white/10 placeholder:text-metallic-grey" id="nome" placeholder="João Silva" required type="text"/>
+          </div>
+          <!-- Email -->
+          <div class="flex flex-col gap-2 group">
+            <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="email">E-mail Corporativo</label>
+            <input class="bg-surface-container-low border text-performance-white focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_10px_rgba(200,160,40,0.3)] rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-white/10 placeholder:text-metallic-grey" id="email" placeholder="joao@empresa.com.br" required type="email"/>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Empresa -->
+          <div class="flex flex-col gap-2 group">
+            <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="empresa">Empresa</label>
+            <input class="bg-surface-container-low border text-performance-white focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_10px_rgba(200,160,40,0.3)] rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-white/10 placeholder:text-metallic-grey" id="empresa" placeholder="Nome da Instituição" required type="text"/>
+          </div>
+          <!-- Cargo -->
+          <div class="flex flex-col gap-2 group">
+            <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="cargo">Cargo</label>
+            <input class="bg-surface-container-low border text-performance-white focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_10px_rgba(200,160,40,0.3)] rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-white/10 placeholder:text-metallic-grey" id="cargo" placeholder="Ex: CEO, Founder, VP" required type="text"/>
+          </div>
+        </div>
+        
+        <!-- LinkedIn -->
+        <div class="flex flex-col gap-2 group">
+          <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="linkedin">Perfil no LinkedIn (Obrigatório para curadoria)</label>
+          <input class="bg-surface-container-low border text-performance-white focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_10px_rgba(200,160,40,0.3)] rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-white/10 placeholder:text-metallic-grey" id="linkedin" placeholder="https://linkedin.com/in/..." required type="url"/>
+        </div>
+        
+        <!-- Veículo -->
+        <div class="flex flex-col gap-2 group">
+          <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="veiculo">Veículo Pretendido para Pista</label>
+          <input class="bg-surface-container-low border text-performance-white focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_10px_rgba(200,160,40,0.3)] rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-white/10 placeholder:text-metallic-grey" id="veiculo" placeholder="Marca e Modelo" required type="text"/>
+        </div>
+        
+        <button class="mt-4 bg-podium-gold text-on-primary font-label-caps text-label-caps px-8 py-4 uppercase tracking-widest transition-all duration-300 w-full flex justify-center items-center gap-2 btn-glow hover:opacity-90" type="submit">
+          ENVIAR APLICAÇÃO PARA ANÁLISE
+          <span class="material-symbols-outlined text-[18px]">lock_open</span>
+        </button>
+        <p class="text-center font-body-md text-microcopy text-metallic-grey mt-2 flex items-center justify-center gap-1">
+          <span class="material-symbols-outlined text-[14px] text-primary">verified_user</span>
+          Protocolo de segurança criptografado. Seus dados são tratados com absoluta confidencialidade e exclusividade.
+        </p>
+      </form>
+    </div>
+  </div>
+</section>

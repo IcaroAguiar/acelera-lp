@@ -1,13 +1,18 @@
 ---
+import OptimizedPicture from "./OptimizedPicture.astro";
 ---
 <!-- Interlagos / O Lugar -->
 <section class="relative h-[60vh] md:h-[80vh] flex items-center justify-center bg-track-asphalt border-y border-white/5 reveal-hidden overflow-hidden" id="interlagos-track">
   <div class="absolute inset-0 w-full h-full">
-    <img
+    <OptimizedPicture
+      base="/images/hero-interlagos"
       alt="Reta principal do Autódromo de Interlagos"
       class="w-full h-full object-cover object-center scale-[1.15]"
       id="track-parallax-img"
-      src="/images/hero-interlagos.jpg"
+      sizes="100vw"
+      loading="lazy"
+      width={1600}
+      height={1200}
       style="transform: scale(1.15) translateY(0%);"
     />
     <div class="absolute inset-0 bg-track-asphalt/80"></div>

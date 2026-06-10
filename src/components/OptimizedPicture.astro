@@ -1,0 +1,51 @@
+---
+interface Props {
+  /** Caminho base sem extensão, ex.: /images/interlagos-aerial */
+  base: string;
+  alt: string;
+  class?: string;
+  id?: string;
+  style?: string;
+  loading?: "lazy" | "eager";
+  fetchpriority?: "high" | "low" | "auto";
+  sizes?: string;
+  width?: number;
+  height?: number;
+  /** srcset WebP opcional para telas menores (ex.: /images/interlagos-aerial-1280.webp 1280w) */
+  webpSrcSet?: string;
+}
+
+const {
+  base,
+  alt,
+  class: className,
+  id,
+  style,
+  loading = "lazy",
+  fetchpriority,
+  sizes = "100vw",
+  width,
+  height,
+  webpSrcSet,
+} = Astro.props;
+
+const webp = `${base}.webp`;
+const jpeg = `${base}.jpg`;
+const imgAttrs = {
+  alt,
+  class: className,
+  loading,
+  decoding: "async" as const,
+  sizes,
+  ...(id ? { id } : {}),
+  ...(style ? { style } : {}),
+  ...(width ? { width } : {}),
+  ...(height ? { height } : {}),
+  ...(fetchpriority ? { fetchpriority } : {}),
+};
+---
+
+<picture>
+  <source srcset={webpSrcSet ?? webp} type="image/webp" sizes={sizes} />
+  <img src={jpeg} {...imgAttrs} />
+</picture>

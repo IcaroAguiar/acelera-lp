@@ -1,4 +1,5 @@
 ---
+import OptimizedPicture from "./OptimizedPicture.astro";
 ---
 <!-- O que é / Experiência -->
 <section class="py-section-gap-mobile md:py-section-gap-desktop bg-track-asphalt relative reveal-hidden" id="experiencia">
@@ -6,10 +7,14 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-stack-lg md:gap-16 items-center">
       <div class="order-2 md:order-1 relative">
         <div class="aspect-[4/5] relative bg-pit-lane-navy border border-white/5 overflow-hidden group">
-          <img
+          <OptimizedPicture
+            base="/images/hero-interlagos"
             alt="Autódromo de Interlagos, reta principal"
             class="w-full h-full object-cover object-center mix-blend-luminosity opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 z-10 relative"
-            src="/images/hero-interlagos.jpg"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            loading="lazy"
+            width={1600}
+            height={1200}
           />
           <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-track-asphalt to-transparent z-20">
             <p class="font-label-caps text-microcopy text-primary tracking-widest">INTERLAGOS · SP</p>

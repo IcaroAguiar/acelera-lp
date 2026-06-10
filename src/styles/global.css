@@ -262,15 +262,6 @@ input:-webkit-autofill:active {
   transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* Cinematic Hero Background */
-.cinematic-bg {
-  background-image: url("https://lh3.googleusercontent.com/aida/AP1WRLuJVpvtrmp6VVIsWEazFlZ5Z5wFAO9mrBQQT8fBDQXnNXcrtk-Gh5frYytetl5UBSyoC3m9Dj1rAnkkpfZaFJlVbFny651yQtgSLtyvB1e-tWzUNz5_haAonxlcmVXtFQa_xrSpG7fm52j26-3gulskg-wH9wUTXwi5bT9ibTTuYoJt39xPQIZvf8MZvs2BluN_vU_NmVseaz7IYFDYNlqnskz1GBud53FP-Fo78ER8Go6FQ5VoQZQo0hY");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed; /* Parallax effect */
-  filter: brightness(0.6) contrast(1.2);
-}
-
 /* Parallax Text Utilities */
 .parallax-slow {
   transition: transform 0.1s ease-out;

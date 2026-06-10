@@ -1,13 +1,20 @@
 ---
+import OptimizedPicture from "./OptimizedPicture.astro";
 ---
 <!-- Hero Section -->
 <header class="relative min-h-[90vh] md:min-h-screen flex items-center w-full pt-20 overflow-hidden">
   <div class="absolute inset-0 w-full h-full overflow-hidden">
-    <img
-      src="/images/interlagos-aerial.jpg"
+    <OptimizedPicture
+      base="/images/interlagos-aerial"
+      webpSrcSet="/images/interlagos-aerial-1280.webp 1280w, /images/interlagos-aerial.webp 1920w"
+      sizes="100vw"
       class="w-full h-full object-cover object-center filter brightness-[0.82] contrast-[1.1] saturate-[1.05]"
       id="hero-parallax-img"
       alt="Vista aérea do Autódromo de Interlagos"
+      loading="eager"
+      fetchpriority="high"
+      width={1920}
+      height={1280}
     />
     <div class="absolute inset-0 bg-gradient-to-r from-track-asphalt/85 via-track-asphalt/55 to-transparent"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-track-asphalt via-track-asphalt/35 to-transparent"></div>

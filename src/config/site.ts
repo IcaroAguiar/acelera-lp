@@ -7,7 +7,7 @@ export const site = {
   whatsappPhone: import.meta.env.PUBLIC_WHATSAPP_PHONE ?? "",
   formWebhookUrl: import.meta.env.PUBLIC_FORM_WEBHOOK_URL ?? "",
   siteUrl: import.meta.env.PUBLIC_SITE_URL ?? "https://aceleraconexoes.com.br",
-  ogImage: "/images/interlagos-aerial.jpg",
+  ogImage: "/images/interlagos-aerial-1280.jpg",
   ga4Id: import.meta.env.PUBLIC_GA4_ID ?? "",
   metaPixelId: import.meta.env.PUBLIC_META_PIXEL_ID ?? "",
   /** Logo horizontal sem fundo (PDF impressão · variante lima). */

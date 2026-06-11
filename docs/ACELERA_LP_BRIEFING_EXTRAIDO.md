@@ -122,7 +122,7 @@ Etapas:
 - Pista: pilotagem em carros esportivos; instrucao com piloto profissional.
 - Simulador: competicao em simulador profissional; ranking ao vivo entre participantes.
 - Dinamicas: atividades estrategicas desenhadas para gerar conexoes reais de negocio.
-- Almoco premium: mesa compartilhada com todos; o networking acontece aqui.
+- Almoco e coffee break: mesa compartilhada com todos; o networking acontece aqui.
 - Podio: cerimonia de encerramento; ranking final; reconhecimento dos destaques.
 
 ### Secao 4 - Interlagos / O Lugar
@@ -176,7 +176,7 @@ Inclusoes:
 - Acesso a pista de Interlagos durante todo o dia.
 - Pilotagem em carros esportivos com instrucao profissional.
 - Competicao no simulador profissional.
-- Almoco premium e coffee break.
+- Almoco e coffee break.
 - Dinamicas estrategicas de networking.
 - Material e kit do participante.
 - Cerimonia de podio e registro fotografico.

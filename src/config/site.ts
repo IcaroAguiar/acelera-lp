@@ -29,7 +29,7 @@ export const investmentIncludes = [
   "Acesso à pista de Interlagos durante todo o dia.",
   "Pilotagem em carros esportivos com instrução profissional.",
   "Competição no simulador profissional.",
-  "Almoço premium e coffee break.",
+  "Almoço e Coffee break.",
   "Dinâmicas estratégicas de networking.",
   "Material e kit do participante.",
   "Cerimônia de pódio e registro fotográfico.",

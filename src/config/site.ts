@@ -14,6 +14,12 @@ export const site = {
   logo: "/brand/logo-horizontal-lime.png",
   logoOrange: "/brand/logo-horizontal-orange.png",
   paletteReference: "/brand/paleta-cores.png",
+  heroVideo: {
+    poster: "/images/interlagos-aerial.webp",
+    desktopMp4: "/videos/hero-acelera-1080.mp4",
+    mobileMp4: "/videos/hero-acelera-720.mp4",
+    webm: "/videos/hero-acelera-720.webm",
+  },
 } as const;
 
 /** Paleta oficial do manual de marca (Drive). */

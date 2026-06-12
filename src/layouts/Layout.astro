@@ -195,8 +195,8 @@ const ogImageUrl = new URL(site.ogImage, canonicalUrl).href;
         });
       }
 
-      // Parallax effect for Hero background image
-      const heroImg = document.getElementById('hero-parallax-img');
+      // Parallax effect for Hero background (poster + video)
+      const heroMedia = document.getElementById('hero-parallax-media');
 
       // Parallax effect for Interlagos section
       const trackSection = document.getElementById('interlagos-track');
@@ -205,9 +205,9 @@ const ogImageUrl = new URL(site.ogImage, canonicalUrl).href;
       window.addEventListener('scroll', () => {
         const scrolled = window.scrollY;
         
-        // Hero background image parallax
-        if (heroImg) {
-          heroImg.style.transform = `translateY(${scrolled * 0.15}px)`;
+        // Hero background parallax
+        if (heroMedia) {
+          heroMedia.style.transform = `translateY(${scrolled * 0.15}px)`;
         }
 
         // Interlagos section parallax

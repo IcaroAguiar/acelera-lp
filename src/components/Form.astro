@@ -1,5 +1,8 @@
 ---
 import { originOptions, site } from "../config/site";
+
+const fieldClass =
+  "bg-brand-off-white border text-brand-black focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_10px_rgba(200,160,40,0.3)] rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-black/15 placeholder:text-outline";
 ---
 <!-- Formulário / Solicitar Participação -->
 <section class="py-section-gap-mobile md:py-section-gap-desktop bg-track-asphalt border-t border-white/5 reveal-hidden" id="contato">
@@ -43,33 +46,33 @@ import { originOptions, site } from "../config/site";
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="flex flex-col gap-2 group">
             <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="nome">Nome completo</label>
-            <input class="bg-surface-container-low border text-performance-white focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_10px_rgba(200,160,40,0.3)] rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-white/10 placeholder:text-metallic-grey" id="nome" name="nome" placeholder="Seu nome completo" required type="text"/>
+            <input class={fieldClass} id="nome" name="nome" placeholder="Seu nome completo" required type="text"/>
           </div>
           <div class="flex flex-col gap-2 group">
             <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="whatsapp">WhatsApp</label>
-            <input class="bg-surface-container-low border text-performance-white focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_10px_rgba(200,160,40,0.3)] rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-white/10 placeholder:text-metallic-grey" id="whatsapp" name="whatsapp" inputmode="tel" placeholder="(11) 99877-0459" required type="tel"/>
+            <input class={fieldClass} id="whatsapp" name="whatsapp" inputmode="tel" placeholder="(11) 99877-0459" required type="tel"/>
           </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="flex flex-col gap-2 group">
             <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="email">E-mail</label>
-            <input class="bg-surface-container-low border text-performance-white focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_10px_rgba(200,160,40,0.3)] rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-white/10 placeholder:text-metallic-grey" id="email" name="email" placeholder="seu@email.com" required type="email"/>
+            <input class={fieldClass} id="email" name="email" placeholder="seu@email.com" required type="email"/>
           </div>
           <div class="flex flex-col gap-2 group">
             <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="empresa">Empresa onde atua</label>
-            <input class="bg-surface-container-low border text-performance-white focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_10px_rgba(200,160,40,0.3)] rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-white/10 placeholder:text-metallic-grey" id="empresa" name="empresa" placeholder="Nome da empresa ou setor (opcional)" type="text"/>
+            <input class={fieldClass} id="empresa" name="empresa" placeholder="Nome da empresa ou setor (opcional)" type="text"/>
           </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="flex flex-col gap-2 group">
             <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="cargo">Qual é o seu cargo ou função?</label>
-            <input class="bg-surface-container-low border text-performance-white focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_10px_rgba(200,160,40,0.3)] rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-white/10 placeholder:text-metallic-grey" id="cargo" name="cargo" placeholder="CEO, Diretor, Sócio..." required type="text"/>
+            <input class={fieldClass} id="cargo" name="cargo" placeholder="CEO, Diretor, Sócio..." required type="text"/>
           </div>
           <div class="flex flex-col gap-2 group">
             <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="origem">Como ficou sabendo do Acelera?</label>
-            <select class="bg-surface-container-low border text-performance-white focus:border-primary focus:ring-1 focus:ring-primary rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-white/10" id="origem" name="origem">
+            <select class={fieldClass} id="origem" name="origem">
               <option value="">Selecione</option>
               {originOptions.map((option) => (
                 <option value={option}>{option}</option>
@@ -82,7 +85,7 @@ import { originOptions, site } from "../config/site";
           <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="atracao">
             O que mais te atrai nessa experiência? <span class="text-metallic-grey normal-case tracking-normal">(opcional)</span>
           </label>
-          <textarea class="bg-surface-container-low border text-performance-white focus:border-primary focus:ring-1 focus:ring-primary focus:shadow-[0_0_10px_rgba(200,160,40,0.3)] rounded-DEFAULT p-3 font-body-md transition-all duration-300 outline-none border-white/10 placeholder:text-metallic-grey min-h-[120px] resize-y" id="atracao" name="atracao" placeholder="Conte em poucas palavras..."></textarea>
+          <textarea class={`${fieldClass} min-h-[120px] resize-y`} id="atracao" name="atracao" placeholder="Conte em poucas palavras..."></textarea>
         </div>
 
         <label class="flex items-start gap-3 cursor-pointer">

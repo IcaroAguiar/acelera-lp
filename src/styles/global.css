@@ -143,13 +143,13 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Form Autofill Fix for Dark Mode */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px #1f1e1c inset !important;
-  -webkit-text-fill-color: #f1f2eb !important;
+/* Form autofill — campos claros do lead form */
+#lead-form input:-webkit-autofill,
+#lead-form input:-webkit-autofill:hover,
+#lead-form input:-webkit-autofill:focus,
+#lead-form input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #f1f2eb inset !important;
+  -webkit-text-fill-color: #141312 !important;
   transition: background-color 5000s ease-in-out 0s;
 }
 

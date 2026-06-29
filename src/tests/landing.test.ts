@@ -1,10 +1,17 @@
-import { describe, it, expect } from "vitest";
+import { describe, expect, it } from "vitest";
 import { investmentIncludes, originOptions, site } from "../config/site";
 
 describe("Landing Page Configurations", () => {
   it("should verify document meta configurations", () => {
     expect(site.name).toBe("Acelera Conexões");
     expect(site.investment).toBe("R$ 15.000,00");
+    expect(site.crmWebhookUrl).toBe(
+      "https://api.datacrazy.io/v1/crm/api/crm/flows/webhooks/05a62e16-fbdb-41f6-83ee-2484caa9a3ef/10747e5e-9462-4d96-838e-3c8f71a2650c",
+    );
+    expect(site.metaPixelId).toBe("1663073561411767");
+    expect(site.facebookDomainVerification).toBe(
+      "j5ihkjl1op6x5qhy3iei8xgcfc8mvd",
+    );
   });
 
   it("should match briefing form origin options", () => {

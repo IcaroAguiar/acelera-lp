@@ -19,6 +19,9 @@ const ogImageUrl = new URL(site.ogImage, canonicalUrl).href;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {site.facebookDomainVerification && (
+      <meta name="facebook-domain-verification" content={site.facebookDomainVerification} />
+    )}
 
     <link rel="canonical" href={canonicalUrl} />
 
@@ -108,6 +111,17 @@ const ogImageUrl = new URL(site.ogImage, canonicalUrl).href;
     )}
   </head>
   <body class="bg-track-asphalt text-performance-white font-body-md antialiased overflow-x-hidden selection:bg-podium-gold selection:text-track-asphalt">
+    {site.metaPixelId && (
+      <noscript>
+        <img
+          height="1"
+          width="1"
+          style="display:none"
+          src={`https://www.facebook.com/tr?id=${site.metaPixelId}&ev=PageView&noscript=1`}
+          alt=""
+        />
+      </noscript>
+    )}
     <slot />
 
     <script is:inline>

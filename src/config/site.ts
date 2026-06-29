@@ -5,11 +5,16 @@ export const site = {
     "Experiência premium de pilotagem em Interlagos para empresários e executivos de alto nível.",
   investment: "R$ 15.000,00",
   whatsappPhone: import.meta.env.PUBLIC_WHATSAPP_PHONE ?? "",
-  formWebhookUrl: import.meta.env.PUBLIC_FORM_WEBHOOK_URL ?? "",
+  crmWebhookUrl:
+    import.meta.env.PUBLIC_CRM_WEBHOOK_URL ??
+    "https://api.datacrazy.io/v1/crm/api/crm/flows/webhooks/05a62e16-fbdb-41f6-83ee-2484caa9a3ef/10747e5e-9462-4d96-838e-3c8f71a2650c",
   siteUrl: import.meta.env.PUBLIC_SITE_URL ?? "https://aceleraconexoes.online",
   ogImage: "/images/interlagos-aerial-1280.jpg",
   ga4Id: import.meta.env.PUBLIC_GA4_ID ?? "",
-  metaPixelId: import.meta.env.PUBLIC_META_PIXEL_ID ?? "",
+  metaPixelId: import.meta.env.PUBLIC_META_PIXEL_ID ?? "1663073561411767",
+  facebookDomainVerification:
+    import.meta.env.PUBLIC_FACEBOOK_DOMAIN_VERIFICATION ??
+    "j5ihkjl1op6x5qhy3iei8xgcfc8mvd",
   /** Logo horizontal sem fundo (PDF impressão · variante lima). */
   logo: "/brand/logo-horizontal-lime.png",
   logoOrange: "/brand/logo-horizontal-orange.png",

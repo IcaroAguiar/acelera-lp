@@ -60,15 +60,19 @@ const fieldClass =
             <input class={fieldClass} id="email" name="email" placeholder="seu@email.com" required type="email"/>
           </div>
           <div class="flex flex-col gap-2 group">
-            <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="empresa">Empresa onde atua</label>
+            <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="empresa">
+              Empresa onde atua <span class="text-metallic-grey normal-case tracking-normal">(opcional)</span>
+            </label>
             <input class={fieldClass} id="empresa" name="empresa" placeholder="Nome da empresa ou setor (opcional)" type="text"/>
           </div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="flex flex-col gap-2 group">
-            <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="cargo">Qual é o seu cargo ou função?</label>
-            <input class={fieldClass} id="cargo" name="cargo" placeholder="CEO, Diretor, Sócio..." required type="text"/>
+            <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="cargo">
+              Qual é o seu cargo ou função? <span class="text-metallic-grey normal-case tracking-normal">(opcional)</span>
+            </label>
+            <input class={fieldClass} id="cargo" name="cargo" placeholder="CEO, Diretor, Sócio..." type="text"/>
           </div>
           <div class="flex flex-col gap-2 group">
             <label class="font-label-caps text-microcopy text-performance-white uppercase tracking-wider group-focus-within:text-primary transition-colors" for="origem">Como ficou sabendo do Acelera?</label>
@@ -110,7 +114,7 @@ const fieldClass =
   </div>
 </section>
 
-<script define:vars={{ webhookUrl: site.formWebhookUrl }}>
+<script define:vars={{ crmWebhookUrl: site.crmWebhookUrl }}>
   const form = document.getElementById("lead-form");
   const success = document.getElementById("form-success");
   const errorEl = document.getElementById("form-error");
@@ -162,16 +166,14 @@ const fieldClass =
       submitBtn.disabled = true;
 
       try {
-        if (webhookUrl) {
-          const response = await fetch(webhookUrl, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
-          });
+        const response = await fetch(crmWebhookUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(payload),
+        });
 
-          if (!response.ok) {
-            throw new Error("Não foi possível enviar sua solicitação. Tente novamente.");
-          }
+        if (!response.ok) {
+          throw new Error("Não foi possível enviar sua solicitação. Tente novamente.");
         }
 
         form.classList.add("hidden");

@@ -25,3 +25,7 @@ pnpm-debug.log*
 .vercel
 .pnpm-store/
 public/images/*.source.jpg
+
+# arquivos de sessão e de ferramentas (não fazem parte do produto)
+/source/
+/docs/ACELERA_LP_BRIEFING_EXTRAIDO.md

@@ -4,9 +4,7 @@ Repositorio da landing page do Acelera Conexoes, projeto Star Agency.
 
 ## Materiais iniciais
 
-- `docs/ACELERA_LP_BRIEFING_EXTRAIDO.md`: briefing estruturado para conteudo, copy, requisitos tecnicos, formulario, ativos e lacunas.
 - `docs/DESIGN.md`: contrato inicial de design para orientar variantes visuais minimalistas, premium e focadas em conversao.
-- `source/Acelera_LP_Brief.pdf`: PDF original usado como fonte primaria.
 
 ## Direcao
 
